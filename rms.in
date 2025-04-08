@@ -1,0 +1,22 @@
+#!/bin/sh
+
+parm ../com.prmtop
+
+trajin ./md1.nc  1 50000  10
+
+reference ../com.pdb
+#reference ./average.pdb
+
+##rms
+#rms reference mass out main.csv
+rms reference mass out pro.csv :1-400@CA,N,C 
+rms reference mass out lig.csv :401 nofit
+#rms reference mass out com.csv (:1-366@CA,N,C)|(:367)
+
+
+#rms  reference mass  :1-366@CA
+#atomicfluct out bfactor0.dat :1-366@CA     byres  bfactor
+
+#trajout newnc.nc
+
+
